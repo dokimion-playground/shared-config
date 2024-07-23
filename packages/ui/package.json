@@ -1,14 +1,13 @@
 {
-  "name": "@acme/ui",
+  "name": "@repo/ui",
   "version": "0.0.0",
+  "main": "./src/index.ts",
   "sideEffects": false,
   "license": "MIT",
   "exports": {
-    "./button": {
-      "types": "./src/button.tsx",
-      "import": "./dist/button.mjs",
-      "require": "./dist/button.js"
-    }
+    ".": [
+      "./src/index.ts"
+    ]
   },
   "scripts": {
     "build": "tsup",
@@ -18,15 +17,16 @@
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
     "eslint": "^8.57.0",
-    "@repo/typescript-config": "workspace:*",
     "tsup": "^8.0.2",
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "styled-components": "^6.1.12"
   },
   "publishConfig": {
     "access": "public"
