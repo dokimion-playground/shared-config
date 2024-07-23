@@ -45,6 +45,9 @@ importers:
       '@storybook/addon-links':
         specifier: ^7.6.17
         version: 7.6.19(react@18.3.1)
+      '@storybook/addon-themes':
+        specifier: ^7.6.19
+        version: 7.6.20
       '@storybook/react':
         specifier: ^7.6.17
         version: 7.6.19(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.5)
@@ -3356,6 +3359,12 @@ packages:
     resolution: {integrity: sha512-Tt4MrfjK5j/Mdh8nJ8ccVyh78Dy7aiEPxO31YVvr5XUkge0pDi1PX328mHRDPur0i56NM8ssVbekWBZr+9MxlA==}
     dependencies:
       '@storybook/global': 5.0.0
+      ts-dedent: 2.2.0
+    dev: true
+
+  /@storybook/addon-themes@7.6.20:
+    resolution: {integrity: sha512-GYEeukzoZ//BpFqICUEYOlsjiKHoRVT+odxtQMHGFIbpkc+Ba4hgU/KQip/fNeb6gUEPeJx66IFOm2b1gmxxIA==}
+    dependencies:
       ts-dedent: 2.2.0
     dev: true
 
