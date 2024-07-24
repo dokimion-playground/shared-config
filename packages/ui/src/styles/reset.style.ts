@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 
 // prettier-ignore
 
@@ -66,6 +66,8 @@ textarea, select {
   font-family: inherit;
   font-size: inherit;
 }
+
+button: {cursor: pointer;}
 
 /* Make sure textareas without a rows attribute are not tiny */
 textarea:not([rows]) {

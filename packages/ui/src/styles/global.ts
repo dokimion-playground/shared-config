@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     input {
         font-family: inherit;
         user-select: none;
+        cursor: pointer;
     }
 
 
