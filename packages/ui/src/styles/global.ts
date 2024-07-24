@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
    
@@ -10,7 +10,6 @@ const GlobalStyle = createGlobalStyle`
     input {
         font-family: inherit;
         user-select: none;
-        cursor: pointer;
     }
 
 
