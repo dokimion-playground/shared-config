@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
+    "@repo/prettier-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
@@ -30,5 +31,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "prettier": "@repo/prettier-config"
 }
