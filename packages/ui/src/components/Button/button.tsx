@@ -1,50 +1,42 @@
-import type { FontStyleKeys } from "../../styles/common.style";
-import * as S from "./style";
+import type { FontStyleKeys } from '../../styles/common.style';
+import * as S from './style';
 
-export type ButtonVariants = "outlined" | "filled";
-export type ButtonSizes = "sm" | "md" | "lg";
-export type ButtonColor = "black" | "white";
+export type ButtonVariants = 'primary' | 'second';
+export type ButtonSizes = 'sm' | 'md' | 'lg';
+export type ButtonColor = 'black' | 'white';
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-  type?: "button" | "submit";
-  width?: string;
-  height?: string;
+  type?: 'button' | 'submit';
+  variant?: ButtonVariants;
   font?: FontStyleKeys;
   size?: ButtonSizes;
   color?: ButtonColor;
-  variant?: ButtonVariants;
   disabled?: boolean;
   style?: React.CSSProperties;
 }
 
 const Button = ({
-  type = "button",
-  width = "fit-content",
-  height = "64px",
-  font = "H7_S",
-  size = "md",
-  variant = "filled",
-  color = "black",
+  type = 'button',
+  variant = 'primary',
+  size = 'md',
+  color = 'black',
   disabled = false,
   style,
   children,
   ...props
 }: ButtonProps) => {
   return (
-    <S.ButtonContainer
-      style={style}
+    <S.ButtonWrapper
       type={type}
-      $width={width}
-      $height={height}
-      $size={size}
       $variant={variant}
-      $font={font}
+      $size={size}
       color={color}
       disabled={disabled}
+      style={style}
       {...props}
     >
       {children}
-    </S.ButtonContainer>
+    </S.ButtonWrapper>
   );
 };
 
