@@ -1,0 +1,16 @@
+{
+  "name": "oas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "generate": "openapi-generator-cli generate -g typescript-axios -i ./src/json/pet-store.json -c ./openapi.json",
+    "template": "openapi-generator-cli author template -g typescript-axios -o ./src/mustaches"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/prettier-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*"
+  },
+  "prettier": "@repo/prettier-config"
+}

@@ -1,0 +1,44 @@
+import { axiosInstance, PromiseAxiosResponse } from '@/worker/commands/config/apiInstance';
+{{#withSeparateModelsAndApi}}
+import {
+{{#imports}}
+  {{classname}},
+{{/imports}}
+} from '../model';
+{{/withSeparateModelsAndApi}}
+
+{{#operations}}
+  {{#operation}}
+  {{^isDeprecated}}
+const {{nickname}}Axios = ({
+{{#allParams}}
+  {{paramName}},
+{{/allParams}}
+}: {
+{{#allParams}}
+  {{paramName}}{{^required}}?{{/required}}: {{=<% %>=}}<%&dataType%><%={{ }}=%>;
+{{/allParams}}
+}): PromiseAxiosResponse<{{{returnType}}}{{^returnType}}void{{/returnType}}> => {
+  const localVarPath = `{{{path}}}`{{#pathParams}}
+    .replace(`{${"{{baseName}}"}}`, encodeURIComponent(String({{paramName}}))){{/pathParams}};
+  return axiosInstance.{{#lambda.lowercase}}{{httpMethod}}{{/lambda.lowercase}}(
+  localVarPath,
+  {
+    params: {
+{{#allParams}}
+      {{paramName}},
+{{/allParams}}
+    }
+  })
+};
+
+  {{/isDeprecated}}
+  {{/operation}}
+export {
+  {{#operation}}
+  {{^isDeprecated}}
+  {{nickname}}Axios,
+  {{/isDeprecated}}
+  {{/operation}}
+};
+{{/operations}}

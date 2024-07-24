@@ -1,0 +1,11 @@
+{
+  "spaces": 2,
+  "modelPackage": "src/model",
+  "apiPackage": "src/api",
+  "supportsES6": true,
+  "withNodeImports": false,
+  "useSingleRequestParameter": true,
+  "enumNameSuffix": "",
+  "withSeparateModelsAndApi": true,
+  "templateDir": "./src/mustaches"
+}
