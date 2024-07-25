@@ -1,4 +1,5 @@
 {
+  "output": "./src",
   "spaces": 2,
   "modelPackage": "src/model",
   "apiPackage": "src/api",

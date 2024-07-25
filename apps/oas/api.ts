@@ -13,18 +13,8 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import type { Address } from './address';
 
-/**
- * 
- * @export
- * @interface Customer
- */
-export interface Customer {
-    'id'?: number;
-    'username'?: string;
-    'address'?: Array<Address>;
-}
+export * from './src/api/pet-api';
+export * from './src/api/store-api';
+export * from './src/api/user-api';
 

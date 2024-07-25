@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "generate": "openapi-generator-cli generate -g typescript-axios -i ./src/json/pet-store.json -c ./openapi.json",
+    "generate": "openapi-generator-cli generate -g typescript-axios -i ./src/yaml/pet-store.yaml -c ./openapi.json",
     "template": "openapi-generator-cli author template -g typescript-axios -o ./src/mustaches",
     "start": "http-server -p 8000",
     "build": "tsup && pnpm run copy-html"
