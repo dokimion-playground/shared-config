@@ -1,16 +1,15 @@
 import type { FontStyleKeys } from '../../styles/common.style';
 import * as S from './style';
 
-export type ButtonVariants = 'primary' | 'second';
+export type ButtonVariants = 'primary' | 'secondary';
 export type ButtonSizes = 'sm' | 'md' | 'lg';
-export type ButtonColor = 'black' | 'white';
+// export type ButtonColor = 'black' | 'white';
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   type?: 'button' | 'submit';
   variant?: ButtonVariants;
-  font?: FontStyleKeys;
   size?: ButtonSizes;
-  color?: ButtonColor;
+  width?: number | string;
   disabled?: boolean;
   style?: React.CSSProperties;
 }
@@ -18,8 +17,8 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 const Button = ({
   type = 'button',
   variant = 'primary',
+  width = 'auto',
   size = 'md',
-  color = 'black',
   disabled = false,
   style,
   children,
@@ -29,8 +28,8 @@ const Button = ({
     <S.ButtonWrapper
       type={type}
       $variant={variant}
+      $width={width}
       $size={size}
-      color={color}
       disabled={disabled}
       style={style}
       {...props}
