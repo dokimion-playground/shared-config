@@ -3,81 +3,122 @@ import { css } from 'styled-components';
 // prettier-ignore
 
 const reset = css`
- /* Box sizing rules */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+  /* http://meyerweb.com/eric/tools/css/reset/
+    v5.0.1 | 20191019
+    License: none (public domain)
+  */
 
-/* Prevent font size inflation */
-html {
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
-}
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, menu, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed,
+  figure, figcaption, footer, header, hgroup,
+  main, menu, nav, output, ruby, section, summary,
+  time, mark, audio, video, dialog {
+    margin: 0;
+    padding: 0;
+    /* vertical-align: baseline; */
+    border: 0;
+  }
 
-/* Remove default margin in favour of better control in authored CSS */
-body, h1, h2, h3, h4, p,
-figure, blockquote, dl, dd {
-  margin-block-end: 0;
-}
+  /* HTML5 display-role reset for older browsers */
+  article, aside, details, figcaption, figure,
+  footer, header, hgroup, main, menu, nav, section {
+    display: block;
+  }
 
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
-  list-style: none;
-}
+  /* HTML5 hidden-attribute fix for newer browsers */
+  *[hidden] {
+      display: none;
+  }
 
-/* Set core body defaults */
-body {
-  min-height: 100vh;
-  line-height: 1.5;
-}
+  body {
+    line-height: 1;
+  }
 
-/* Set shorter line heights on headings and interactive elements */
-h1, h2, h3, h4,
-button, input, label {
-  line-height: 1.1;
-}
-
-/* Balance text wrapping on headings */
-h1, h2,
-h3, h4 {
-  text-wrap: balance;
-}
-
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-  color: currentColor;
-}
-
-/* Make images easier to work with */
-img,
-picture {
-  max-width: 100%;
-  display: block;
-}
-
-/* Inherit fonts for inputs and buttons */
-input, button,
-textarea, select {
-  font-family: inherit;
   font-size: inherit;
-}
+  
+  menu, li, ol, ul, dd {
+    list-style: none;
+  }
 
-button: {cursor: pointer;}
+  blockquote, q {
+    quotes: none;
+  }
 
-/* Make sure textareas without a rows attribute are not tiny */
-textarea:not([rows]) {
-  min-height: 10em;
-}
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+    content: '';
+    content: none;
+  }
 
-/* Anything that has been anchored to should have extra scroll margin */
-:target {
-  scroll-margin-block: 5ex;
-}
+  table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    vertical-align: baseline;
+  }
+
+  /****** Elad Shechter's RESET *******/
+  /*** box sizing border-box for all elements ***/
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  a { 
+    cursor: pointer; 
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+  }
+
+  button {
+    cursor: pointer; 
+
+    padding: 0; 
+
+    color: inherit;
+
+    background-color: transparent;
+    border-width: 0;
+  }
+
+  /* input::-moz-focus-inner { 
+    margin: 0; 
+    padding: 0;
+    border: 0;
+  } */
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+/* Firefox */
+  input[type=number] {
+    /* -moz-appearance: textfield; */
+    appearance: textfield;
+  }
+
+  input { 
+    /* -webkit-appearance : none;
+    -moz-appearance:none; */
+    /* appearance:none; */
+    border:none;
+
+    &:hover {
+      border: none;
+    }
+  }
 `
 
 export default reset;
