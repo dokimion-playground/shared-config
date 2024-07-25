@@ -12,9 +12,6 @@
  * Do not edit the class manually.
  */
 
-
-
-export * from './src/api/pet-api';
-export * from './src/api/store-api';
-export * from './src/api/user-api';
-
+export * from './api/pet-api';
+// export * from './api/store-api';
+// export * from './api/user-api';

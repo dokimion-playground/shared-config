@@ -12,16 +12,13 @@
  * Do not edit the class manually.
  */
 
-
-
 /**
- * 
+ *
  * @export
  * @interface ApiResponse
  */
 export interface ApiResponse {
-    'code'?: number;
-    'type'?: string;
-    'message'?: string;
+  code?: number;
+  type?: string;
+  message?: string;
 }
-

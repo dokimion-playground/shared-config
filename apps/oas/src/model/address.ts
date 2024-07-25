@@ -12,17 +12,14 @@
  * Do not edit the class manually.
  */
 
-
-
 /**
- * 
+ *
  * @export
  * @interface Address
  */
 export interface Address {
-    'street'?: string;
-    'city'?: string;
-    'state'?: string;
-    'zip'?: string;
+  street?: string;
+  city?: string;
+  state?: string;
+  zip?: string;
 }
-
