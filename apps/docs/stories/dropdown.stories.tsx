@@ -13,7 +13,7 @@ const options = [
 ];
 
 const meta: Meta<typeof Dropdown> = {
-  title: 'Design System/Atoms/Dropdown',
+  title: 'Common/Dropdown',
   component: Dropdown,
   tags: ['autodocs'],
   decorators: [
