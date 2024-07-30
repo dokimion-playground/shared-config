@@ -1,7 +1,7 @@
 import type { FontStyleKeys } from '../../styles/common.style';
 import * as S from './style';
 
-export type ButtonVariants = 'primary' | 'secondary';
+export type ButtonVariants = 'primary' | 'secondary' | 'sub' | 'gray' | 'text';
 export type ButtonSizes = 'sm' | 'md' | 'lg';
 // export type ButtonColor = 'black' | 'white';
 
@@ -25,7 +25,7 @@ const Button = ({
   ...props
 }: ButtonProps) => {
   return (
-    <S.ButtonWrapper
+    <S.Button
       type={type}
       $variant={variant}
       $width={width}
@@ -35,7 +35,7 @@ const Button = ({
       {...props}
     >
       {children}
-    </S.ButtonWrapper>
+    </S.Button>
   );
 };
 
