@@ -69,10 +69,12 @@ const Dropdown = ({
 
   return (
     <S.Wrapper>
-      <S.LabelWrapper>
-        <label htmlFor={name}>{name}</label>
-        {isDot && <div />}
-      </S.LabelWrapper>
+      {name && (
+        <S.Label htmlFor={name}>
+          {name}
+          {isDot && <span></span>}
+        </S.Label>
+      )}
 
       <S.HiddenSelect
         name={name}

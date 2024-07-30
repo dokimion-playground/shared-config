@@ -1,40 +1,28 @@
 import styled, { css } from 'styled-components';
-import { FONT_STYLES, ScrollBar } from '../../styles/common.style';
+import {
+  FONT_STYLES,
+  ScrollBar,
+  DisabledStyles,
+  HoverStyles,
+  ActiveStyles,
+} from '../../styles/common.style';
 
 export const Wrapper = styled.div`
-  width: 100%;
+  display: inline-block;
 `;
 
-export const LabelWrapper = styled.div`
-  width: 100%;
-  display: flex;
+export const Label = styled.label`
+  display: inline-flex;
   padding: 4px 0;
+  ${FONT_STYLES.BODY5_M}
 
-  & label {
-    ${FONT_STYLES.BODY5_M}
-  }
-
-  & div {
+  span {
     width: 6px;
     height: 6px;
     border-radius: 50%;
     background-color: ${({ theme }) => theme.color.alarm};
     margin-left: 2px;
   }
-`;
-
-const disabledStyles = css`
-  background-color: ${({ theme }) => theme.color.gray100};
-  color: ${({ theme }) => theme.color.gray400};
-  cursor: not-allowed;
-`;
-
-const hoverStyles = css`
-  border: 1px solid ${({ theme }) => theme.color.black};
-`;
-
-const openStyles = css`
-  border: 2px solid ${({ theme }) => theme.color.black};
 `;
 
 const DropdownStyles = css`
@@ -48,7 +36,6 @@ const DropdownStyles = css`
   ${FONT_STYLES.BODY5_M};
   color: ${({ theme }) => theme.color.gray500};
   cursor: pointer;
-  box-sizing: border-box;
 `;
 
 export const DropdownWrapper = styled.section`
@@ -58,15 +45,15 @@ export const DropdownWrapper = styled.section`
 
 export const Dropdown = styled.div<{ disabled: boolean; $isOpen: boolean; $isSelected: boolean }>`
   ${DropdownStyles}
-  ${({ disabled }) => disabled && disabledStyles}
-  ${({ $isOpen }) => $isOpen && openStyles}
+  ${({ disabled }) => disabled && DisabledStyles}
+  ${({ $isOpen }) => $isOpen && ActiveStyles}
 
   &:hover {
-    ${({ $isOpen }) => !$isOpen && hoverStyles}
+    ${({ $isOpen, disabled }) => !disabled && !$isOpen && HoverStyles}
   }
 
   & span {
-    color: ${({ $isSelected, theme }) => ($isSelected ? theme.color.black : 'gray500')};
+    color: ${({ $isSelected, theme }) => ($isSelected ? theme.color.black : theme.color.gray500)};
   }
 `;
 
