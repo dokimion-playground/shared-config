@@ -1,25 +1,38 @@
-import React, { useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { Toast } from '@repo/ui';
+import React, { useEffect } from 'react';
+import { ToastProvider, useToast } from '@repo/ui';
 
-const meta: Meta<typeof Toast> = {
-  title: 'Common/Toast',
-  component: Toast,
-  tags: ['autodocs'],
-  argTypes: {},
+export default {
+  title: 'common/Toast',
+  decorators: [
+    (Story: any) => (
+      <ToastProvider>
+        <Story />
+      </ToastProvider>
+    ),
+  ],
 };
 
-export default meta;
+export const Default = () => {
+  const Toast = useToast();
 
-type Story = StoryObj<typeof Toast>;
+  useEffect(() => {
+    Toast.success('마운트 시 알림');
+  }, [Toast]);
 
-export const Primary: Story = {};
-
-export const Secondary: Story = {
-  args: {
-    id: '1',
-    type: 'success',
-    message: '성공했습니다.',
-  },
-  render: (args) => <Toast {...args} />,
+  return (
+    <div>
+      <div>
+        <h2>No Close</h2>
+        <button onClick={() => Toast.success('성공')}>success</button>
+        <button onClick={() => Toast.error('실패')}>error</button>
+        <button onClick={() => Toast.warning('경고')}>warning</button>
+      </div>
+      <div>
+        <h2>With Close</h2>
+        <button onClick={() => Toast.success('성공', { close: true })}>success</button>
+        <button onClick={() => Toast.error('실패', { close: true })}>error</button>
+        <button onClick={() => Toast.warning('경고', { close: true })}>warning</button>
+      </div>
+    </div>
+  );
 };

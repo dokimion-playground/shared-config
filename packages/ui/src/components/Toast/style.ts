@@ -5,6 +5,7 @@ const ToastTypeStyles = {
   default: () => css``,
   success: () => css``,
   error: () => css``,
+  waring: () => css``,
 };
 
 export const ToastWrapper = styled.div<{ type: ToastType }>`
