@@ -12,7 +12,7 @@ export const fontWeight = {
   regular: 400,
 } as const;
 
-export const addToPx = (value: number | string): RuleSet<object> => css`
+export const addToPx = (value: number | string) => css`
   ${typeof value === 'number' ? `${value}px` : value}
 `;
 
@@ -285,4 +285,22 @@ export const ScrollBar = css`
     border-radius: 8px;
     background-clip: padding-box;
   }
+`;
+
+export const DisabledStyles = css`
+  background-color: ${({ theme }) => theme.color.gray150};
+  border-color: ${({ theme }) => theme.color.gray400};
+  cursor: not-allowed;
+`;
+
+export const HoverStyles = css`
+  border: 1px solid ${({ theme }) => theme.color.black};
+`;
+
+export const ActiveStyles = css`
+  border: 1px solid ${({ theme }) => theme.color.blue};
+`;
+
+export const ErrorStyles = css`
+  border: 1px solid ${({ theme }) => theme.color.error};
 `;
