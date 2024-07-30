@@ -14,7 +14,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   style?: React.CSSProperties;
 }
 
-const Button = ({
+export const Button = ({
   type = 'button',
   variant = 'primary',
   width = 'auto',
@@ -38,5 +38,3 @@ const Button = ({
     </S.Button>
   );
 };
-
-export default Button;

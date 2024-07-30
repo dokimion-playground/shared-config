@@ -1,6 +1,6 @@
 import React, { SVGProps } from 'react';
 
-const RefreshSVG = (props: SVGProps<SVGSVGElement>) => {
+export const RefreshSVG = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="24"
@@ -21,5 +21,3 @@ const RefreshSVG = (props: SVGProps<SVGSVGElement>) => {
     </svg>
   );
 };
-
-export default RefreshSVG;

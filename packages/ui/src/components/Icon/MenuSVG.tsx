@@ -1,6 +1,6 @@
 import React, { SVGProps } from 'react';
 
-const MenuSVG = (props: SVGProps<SVGSVGElement>) => {
+export const MenuSVG = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="24"
@@ -21,5 +21,3 @@ const MenuSVG = (props: SVGProps<SVGSVGElement>) => {
     </svg>
   );
 };
-
-export default MenuSVG;

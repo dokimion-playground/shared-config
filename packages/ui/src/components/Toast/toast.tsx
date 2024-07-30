@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useTimeout } from '../../hooks';
-import Text from '../Text';
+import { ToastCheckSVG, ToastCloseSVG } from '../Icon';
+import { Text } from '../Text';
 import * as S from './style';
-import ToastCloseSVG from '../Icon/ToastCloseSVG';
-import ToastCheckSVG from '../Icon/ToastCheckSVG';
 
 export type ToastType = 'default' | 'success' | 'error' | 'warning';
 
@@ -15,7 +14,7 @@ export interface ToastProps {
   onDone?: VoidFunction;
 }
 
-const Toast = ({
+export const Toast = ({
   message = '',
   type = 'default',
   duration = 3000,
@@ -41,5 +40,3 @@ const Toast = ({
     </S.ToastWrapper>
   );
 };
-
-export default Toast;

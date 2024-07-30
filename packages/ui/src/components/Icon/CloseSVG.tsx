@@ -1,6 +1,6 @@
 import React, { SVGProps } from 'react';
 
-const CloseSVG = (props: SVGProps<SVGSVGElement>) => {
+export const CloseSVG = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="24"
@@ -21,5 +21,3 @@ const CloseSVG = (props: SVGProps<SVGSVGElement>) => {
     </svg>
   );
 };
-
-export default CloseSVG;

@@ -14,7 +14,7 @@ type TextRef<C extends React.ElementType> = React.ComponentPropsWithRef<C>['ref'
 type TextPropsWithTypedAttrs<T extends React.ElementType> = TextProps<T> &
   Omit<React.ComponentPropsWithoutRef<T>, keyof TextProps<T>>;
 
-const Text = React.forwardRef(function Text<C extends React.ElementType = 'span'>(
+export const Text = React.forwardRef(function Text<C extends React.ElementType = 'span'>(
   {
     as,
     children,
@@ -35,5 +35,3 @@ const Text = React.forwardRef(function Text<C extends React.ElementType = 'span'
 });
 
 Text.displayName = 'Text';
-
-export default Text;

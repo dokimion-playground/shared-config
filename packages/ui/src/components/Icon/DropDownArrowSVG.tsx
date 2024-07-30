@@ -1,6 +1,6 @@
 import React, { SVGProps } from 'react';
 
-const DropDownArrowSVG = (props: SVGProps<SVGSVGElement>) => {
+export const DropDownArrowSVG = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="20"
@@ -23,5 +23,3 @@ const DropDownArrowSVG = (props: SVGProps<SVGSVGElement>) => {
     </svg>
   );
 };
-
-export default DropDownArrowSVG;

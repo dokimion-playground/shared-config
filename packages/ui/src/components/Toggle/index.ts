@@ -1,3 +1,2 @@
-import Toggle from './toggle';
-
-export default Toggle;
+export type { ToggleProps } from './toggle';
+export { Toggle } from './toggle';

@@ -1,6 +1,6 @@
 import React, { SVGProps } from 'react';
 
-const ToastCloseSVG = (props: SVGProps<SVGSVGElement>) => {
+export const ToastCloseSVG = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="cancel">
@@ -18,5 +18,3 @@ const ToastCloseSVG = (props: SVGProps<SVGSVGElement>) => {
     </svg>
   );
 };
-
-export default ToastCloseSVG;

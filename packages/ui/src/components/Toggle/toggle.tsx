@@ -1,13 +1,13 @@
 import React, { useRef, useState } from 'react';
 import * as S from './style';
 
-interface ToggleProps {
+export interface ToggleProps {
   defaultChecked?: boolean;
   isOn?: boolean;
   onToggle?: (isOn: boolean) => void;
 }
 
-const Toggle = ({ defaultChecked = false, isOn, onToggle }: ToggleProps) => {
+export const Toggle = ({ defaultChecked = false, isOn, onToggle }: ToggleProps) => {
   const toggleRef = useRef<HTMLInputElement>(null);
   const [internalChecked, setInternalChecked] = useState(defaultChecked);
 
@@ -39,5 +39,3 @@ const Toggle = ({ defaultChecked = false, isOn, onToggle }: ToggleProps) => {
     </S.Label>
   );
 };
-
-export default Toggle;

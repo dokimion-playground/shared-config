@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import * as S from './style';
-import DropDownArrowSVG from '../Icon/DropDownArrowSVG';
+import { DropDownArrowSVG } from '../Icon';
 import { useDisclosure, useOutsideClick } from '../../hooks';
 
 interface Option {
@@ -24,7 +24,7 @@ export interface DropdownProps {
   style?: React.CSSProperties;
 }
 
-const Dropdown = ({
+export const Dropdown = ({
   name,
   placeholder = '선택해주세요.',
   isDot = true,
@@ -116,5 +116,3 @@ const Dropdown = ({
     </S.Wrapper>
   );
 };
-
-export default Dropdown;
