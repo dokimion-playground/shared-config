@@ -90,11 +90,15 @@ const reset = css`
     border-width: 0;
   }
 
-  /* input::-moz-focus-inner { 
+  *:focus {
+    outline: 0;
+  }
+
+  input::-moz-focus-inner { 
     margin: 0; 
     padding: 0;
     border: 0;
-  } */
+  }
 
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
