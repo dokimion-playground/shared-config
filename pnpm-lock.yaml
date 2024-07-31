@@ -29,6 +29,9 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
+      styled-components:
+        specifier: ^6.1.12
+        version: 6.1.12(react-dom@18.3.1)(react@18.3.1)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -4190,6 +4193,7 @@ packages:
 
   /@swagger-api/apidom-ns-json-schema-draft-4@1.0.0-alpha.6:
     resolution: {integrity: sha512-E8JjqdDgopnLd4HXEXGSrc6rkbDyB8Qk6sYgmyT6lB8caFUMRdJ5Rp57fPePETnVpegb8cAuKjBdjTImX1gQ3Q==}
+    requiresBuild: true
     dependencies:
       '@babel/runtime-corejs3': 7.24.8
       '@swagger-api/apidom-ast': 1.0.0-alpha.6
