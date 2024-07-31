@@ -2,7 +2,7 @@ import React, { SVGProps } from 'react';
 
 export const ToastCheckSVG = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="24" height="24" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="check_circle">
         <mask id="mask0_4766_2640" maskUnits="userSpaceOnUse" x="0" y="0" width="26" height="26">
           <rect id="Bounding box" width="26" height="26" fill="#D9D9D9" />

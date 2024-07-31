@@ -14,8 +14,8 @@ export const MenuSVG = (props: SVGProps<SVGSVGElement>) => {
       <path
         d="M3 12H21M3 6H21M3 18H21"
         stroke="black"
-        stroke-width="2"
-        stroke-linecap="square"
+        strokeWidth="2"
+        strokeLinecap="square"
         fill={props.color || '#000'}
       />
     </svg>
