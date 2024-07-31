@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
-import { ToastProvider, useToast } from '@repo/ui';
+import React from 'react';
+import { Button, ToastProvider, useToast } from '@repo/ui';
+import styled from 'styled-components';
 
 export default {
   title: 'common/Toast',
@@ -15,24 +16,28 @@ export default {
 export const Default = () => {
   const Toast = useToast();
 
-  useEffect(() => {
-    Toast.success('마운트 시 알림');
-  }, [Toast]);
+  const handleDone = () => {
+    console.log('success');
+  };
 
   return (
-    <div>
-      <div>
-        <h2>No Close</h2>
-        <button onClick={() => Toast.success('성공')}>success</button>
-        <button onClick={() => Toast.error('실패')}>error</button>
-        <button onClick={() => Toast.warning('경고')}>warning</button>
-      </div>
-      <div>
-        <h2>With Close</h2>
-        <button onClick={() => Toast.success('성공', { close: true })}>success</button>
-        <button onClick={() => Toast.error('실패', { close: true })}>error</button>
-        <button onClick={() => Toast.warning('경고', { close: true })}>warning</button>
-      </div>
-    </div>
+    <Wrapper>
+      <Button size="sm" onClick={() => Toast.success('성공했습니다.', { onDone: handleDone })}>
+        Create Success Toast
+      </Button>
+      <Button size="sm" onClick={() => Toast.error('실패했습니다.')}>
+        Create Error Toast
+      </Button>
+      <Button size="sm" onClick={() => Toast.warning('경고')}>
+        Create Warning Toast
+      </Button>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
