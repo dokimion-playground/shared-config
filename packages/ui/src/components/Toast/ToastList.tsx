@@ -1,32 +1,30 @@
-import React from 'react';
-import { Toast, ToastProps, ToastType } from './toast';
+import React, { useContext } from 'react';
+import { Toast } from './toast';
+import { Portal } from '../Portal';
+import { ToastStateContext } from './toastProvider';
+import * as S from './style';
 
-export interface ToastAreaProps {
-  toasts: ToastProps[];
-  removeToast(id: string): void;
-}
+export const ToastList = () => {
+  const toasts = useContext(ToastStateContext);
 
-export type ToastOptionType = {
-  type: ToastType;
-  duration: number;
-};
-
-export const ToastList = ({ toasts, removeToast }: ToastAreaProps) => {
   return (
-    <div>
-      {toasts.map((toast) => {
-        const { id, message, type, duration } = toast;
-        return (
-          <Toast
-            id={id}
-            message={message}
-            type={type}
-            duration={duration}
-            key={id}
-            onDone={() => removeToast(id)}
-          />
-        );
-      })}
-    </div>
+    <Portal>
+      <S.ToastListContainer>
+        {toasts.map((toast) => {
+          const { id, message, type, duration, onDone, isClose } = toast;
+          return (
+            <Toast
+              id={id}
+              message={message}
+              type={type}
+              duration={duration}
+              key={id}
+              onDone={onDone}
+              isClose={isClose}
+            />
+          );
+        })}
+      </S.ToastListContainer>
+    </Portal>
   );
 };

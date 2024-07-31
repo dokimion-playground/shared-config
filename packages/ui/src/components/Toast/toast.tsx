@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-import { useTimeout } from '../../hooks';
-import { ToastCheckSVG, ToastCloseSVG } from '../Icon';
+import React, { useContext, useState } from 'react';
+import { CloseSVG, ToastCheckSVG, ToastCloseSVG, ToastWarningSVG } from '../Icon';
 import { Text } from '../Text';
+import { getToastTypeColor } from '../../utils/getColor';
+import { ToastDispatchContext } from './toastProvider';
+import { useTimeout } from '../../hooks/useTimeout';
 import * as S from './style';
 
-export type ToastType = 'default' | 'success' | 'error' | 'warning';
+export type ToastType = 'success' | 'error' | 'warning';
 
 export interface ToastProps {
   id: string;
@@ -12,31 +14,48 @@ export interface ToastProps {
   type?: ToastType;
   duration?: number;
   onDone?: VoidFunction;
+  isClose?: boolean;
 }
 
 export const Toast = ({
-  message = '',
-  type = 'default',
+  id,
+  message,
+  type = 'success',
   duration = 3000,
   onDone,
-  ...props
+  isClose = true,
 }: ToastProps) => {
-  const [show, setShow] = useState(true);
+  const { close } = useContext(ToastDispatchContext);
+  const [isShown, setIsShown] = useState(true);
 
   useTimeout(() => {
-    setShow(false);
-    setTimeout(() => {
-      onDone?.();
-    }, 1000);
+    if (isShown) {
+      handleClose();
+    }
   }, duration);
 
+  const handleClose = () => {
+    setIsShown(false);
+    setTimeout(() => {
+      close?.({ id, message, type, duration, onDone, isClose });
+      onDone?.();
+    }, 400); // fade out 애니메이션 지속 시간과 맞추기
+  };
   return (
-    <S.ToastWrapper type={type} {...props}>
-      {type === 'success' && <ToastCheckSVG />}
-      {type === 'error' && <ToastCloseSVG />}
-      <Text as="p" variant="BODY3_S" color="white">
-        {message}
-      </Text>
+    <S.ToastWrapper $duration={duration} $type={type} $isShown={isShown}>
+      <div>
+        {type === 'success' && <ToastCheckSVG color={getToastTypeColor(type)} />}
+        {type === 'error' && <ToastCloseSVG color={getToastTypeColor(type)} />}
+        {type === 'warning' && <ToastWarningSVG color={getToastTypeColor(type)} />}
+        <Text as="p" variant="BODY4_B" color="white">
+          {message}
+        </Text>
+      </div>
+      {isClose && (
+        <div onClick={handleClose}>
+          <CloseSVG color="#fff" />
+        </div>
+      )}
     </S.ToastWrapper>
   );
 };

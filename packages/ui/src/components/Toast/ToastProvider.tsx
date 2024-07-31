@@ -1,41 +1,25 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { createPortal } from 'react-dom';
-import { guid } from '../../utils/guid';
-import { ToastList } from './ToastList';
+import React, { createContext, useState, useCallback, ReactNode, useMemo } from 'react';
 
-export type ToastType = 'success' | 'error' | 'warning' | 'default';
-
-export interface ToastProps {
-  id: string;
-  message: string;
-  type: ToastType;
-  duration?: number;
-  close?: boolean;
-}
+import { ToastProps, ToastType } from './toast';
+import { ToastList } from './toastList';
 
 export type ToastOptionType = {
   type: ToastType;
   duration?: number;
-  close?: boolean;
+  isClose?: boolean;
+  onDone?: VoidFunction;
 };
 
-interface ToastContextType {
-  show: (message: string, option?: ToastOptionType) => void;
-  success: (message: string, option?: Omit<ToastOptionType, 'type'>) => void;
-  error: (message: string, option?: Omit<ToastOptionType, 'type'>) => void;
-  warning: (message: string, option?: Omit<ToastOptionType, 'type'>) => void;
+interface ToastDispatchContextType {
+  open: (toast: ToastProps) => void;
+  close: (toast: ToastProps) => void;
 }
 
-const ToastContext = createContext<ToastContextType | undefined>(undefined);
-
-export const useToast = (): ToastContextType => {
-  const context = useContext(ToastContext);
-  if (!context) {
-    throw new Error('useToast must be used within a ToastProvider');
-  }
-  return context;
-};
-
+export const ToastStateContext = createContext<ToastProps[]>([]);
+export const ToastDispatchContext = createContext<ToastDispatchContextType>({
+  open: () => {},
+  close: () => {},
+});
 type ToastProviderProps = {
   children: ReactNode;
 };
@@ -43,56 +27,30 @@ type ToastProviderProps = {
 export const ToastProvider = ({ children }: ToastProviderProps) => {
   const [toasts, setToasts] = useState<ToastProps[]>([]);
 
-  useEffect(() => {
-    const root = document.createElement('div');
-    root.id = 'root-modal';
-    document.body.appendChild(root);
+  const open = useCallback((toast: ToastProps) => {
+    setToasts((prevToasts) => [...prevToasts, toast]);
 
-    return () => {
-      document.body.removeChild(root);
-    };
+    if (toast.duration) {
+      setTimeout(() => {
+        close(toast);
+      }, toast.duration);
+    }
   }, []);
 
-  const showToast = (
-    message: string,
-    option: ToastOptionType = { type: 'default', duration: 4500, close: false },
-  ) => {
-    const id = guid();
-    const newToast = {
-      id,
-      message,
-      type: option.type,
-      duration: option.duration,
-      close: option.close,
-    };
-    setToasts((prevToasts) => [...prevToasts, newToast]);
+  const close = useCallback((p_toast: ToastProps) => {
+    setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== p_toast.id));
+    p_toast?.onDone?.();
+  }, []);
 
-    if (option.duration) {
-      setTimeout(() => removeToast(id), option.duration);
-    }
-  };
-
-  const removeToast = (id: string) => {
-    setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id));
-  };
-
-  const contextValue: ToastContextType = {
-    show: showToast,
-    success: (message, option = { duration: 4500, close: false }) =>
-      showToast(message, { type: 'success', ...option }),
-    error: (message, option = { duration: 4500, close: false }) =>
-      showToast(message, { type: 'error', ...option }),
-    warning: (message, option = { duration: 4500, close: false }) =>
-      showToast(message, { type: 'warning', ...option }),
-  };
+  const toastState = useMemo(() => toasts, [toasts]);
+  const toastAction = useMemo(() => ({ open, close }), [open, close]);
 
   return (
-    <ToastContext.Provider value={contextValue}>
-      {children}
-      {createPortal(
-        <ToastList toasts={toasts} removeToast={removeToast} />,
-        document.getElementById('root-modal')!,
-      )}
-    </ToastContext.Provider>
+    <ToastStateContext.Provider value={toastState}>
+      <ToastDispatchContext.Provider value={toastAction}>
+        {children}
+        <ToastList />
+      </ToastDispatchContext.Provider>
+    </ToastStateContext.Provider>
   );
 };
