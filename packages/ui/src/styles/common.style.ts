@@ -276,7 +276,7 @@ export const ScrollBar = css`
   &::-webkit-scrollbar-track {
     background: ${({ theme }) => theme.color.gray200};
 
-    border-bottom-right-radius: 8px;
+    border-radius: 0 8px 8px 0;
   }
   &::-webkit-scrollbar-thumb {
     width: 4px;
@@ -287,20 +287,20 @@ export const ScrollBar = css`
   }
 `;
 
-export const DisabledStyles = css`
+export const DisabledBorderStyles = css`
   background-color: ${({ theme }) => theme.color.gray150};
   border-color: ${({ theme }) => theme.color.gray400};
   cursor: not-allowed;
 `;
 
-export const HoverStyles = css`
+export const HoverBorderStyles = css`
   border: 1px solid ${({ theme }) => theme.color.black};
 `;
 
-export const ActiveStyles = css`
+export const ActiveBorderStyles = css`
   border: 1px solid ${({ theme }) => theme.color.blue};
 `;
 
-export const ErrorStyles = css`
+export const ErrorBorderStyles = css`
   border: 1px solid ${({ theme }) => theme.color.error};
 `;
