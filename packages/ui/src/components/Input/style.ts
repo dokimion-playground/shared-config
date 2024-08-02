@@ -1,9 +1,9 @@
 import {
-  DisabledStyles,
+  DisabledBorderStyles,
   FONT_STYLES,
-  ErrorStyles,
-  HoverStyles,
-  ActiveStyles,
+  ErrorBorderStyles,
+  HoverBorderStyles,
+  ActiveBorderStyles,
 } from '../../styles/common.style';
 import styled, { css } from 'styled-components';
 
@@ -51,15 +51,15 @@ export const Input = styled.input<{
   }
 
   &:hover {
-    ${({ disabled }) => !disabled && HoverStyles}
+    ${({ disabled }) => !disabled && HoverBorderStyles}
   }
 
   &:focus {
-    ${ActiveStyles}
+    ${ActiveBorderStyles}
   }
 
-  ${({ $isError }) => $isError && ErrorStyles}
-  ${({ disabled }) => disabled && DisabledStyles}
+  ${({ $isError }) => $isError && ErrorBorderStyles}
+  ${({ disabled }) => disabled && DisabledBorderStyles}
 `;
 
 export const TextContainer = styled.div`

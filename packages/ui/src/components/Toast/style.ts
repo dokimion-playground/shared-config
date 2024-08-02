@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { ToastType } from './toast';
+import { getToastTypeColor } from '../../utils/getColor';
 
 export const fadeIn = keyframes({
   '0%': {
@@ -61,14 +62,15 @@ export const ToastWrapper = styled.div<{ $duration: number; $type: ToastType; $i
     left: 0;
     width: 100%;
     height: 4px;
-    border-radius: 4px 4px 0 0;
-    background-color: ${({ theme }) => theme.color.primary};
+    border-radius: 4px 0 0 0;
+    background-color: ${({ $type }) => getToastTypeColor($type)};
     animation: ${progressAnimation} ${({ $duration }) => $duration}ms linear;
   }
 `;
 
 export const ToastListContainer = styled.div`
   position: fixed;
+  z-index: ${({ theme }) => theme.zIndex.toast};
   right: 8px;
   top: 40px;
   display: flex;
