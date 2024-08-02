@@ -2,7 +2,14 @@ import React, { SVGProps } from 'react';
 
 export const ToastCloseSVG = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg width="24" height="24" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width={props.width || 24}
+      height={props.height || 24}
+      viewBox="0 0 26 26"
+      fill={'#ccc'}
+      xmlns="http://www.w3.org/2000/svg"
+      cursor={'pointer'}
+    >
       <g id="cancel">
         <mask id="mask0_4766_2625" maskUnits="userSpaceOnUse" x="0" y="0" width="26" height="26">
           <rect id="Bounding box" width="26" height="26" fill="#D9D9D9" />
