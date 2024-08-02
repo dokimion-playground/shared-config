@@ -26,6 +26,7 @@ const meta: Meta<typeof Dropdown> = {
   args: {
     name: '사업장국가',
     options,
+    mode: 'multiSelect',
   },
   argTypes: {},
 };
@@ -35,17 +36,15 @@ export default meta;
 type Story = StoryObj<typeof Dropdown>;
 
 export const Primary: Story = {
-  render: (args) => <Dropdown {...args} />,
-};
-
-export const Secondary: Story = {
   render: (args) => {
-    const [value, setValue] = useState('');
+    const mode = args.mode || 'default';
 
-    const onChange = (newValue: string) => {
+    const [value, setValue] = useState<string | string[]>(mode === 'multiSelect' ? [] : '');
+
+    const onChange = (newValue: string | string[]) => {
       setValue(newValue);
     };
 
-    return <Dropdown {...args} {...{ value, onChange }} />;
+    return <Dropdown {...args} value={value} onChange={onChange} />;
   },
 };

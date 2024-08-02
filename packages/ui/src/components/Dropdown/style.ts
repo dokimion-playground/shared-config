@@ -2,9 +2,10 @@ import styled, { css } from 'styled-components';
 import {
   FONT_STYLES,
   ScrollBar,
-  DisabledStyles,
-  HoverStyles,
-  ActiveStyles,
+  DisabledBorderStyles,
+  HoverBorderStyles,
+  ActiveBorderStyles,
+  TextEllipsis,
 } from '../../styles/common.style';
 
 export const Wrapper = styled.div`
@@ -29,6 +30,8 @@ const DropdownStyles = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
+
   background-color: ${({ theme }) => theme.color.white};
   padding: 10px 12px;
   border-radius: 8px;
@@ -39,21 +42,31 @@ const DropdownStyles = css`
 `;
 
 export const DropdownWrapper = styled.section`
-  width: 260px;
+  width: 340px;
   position: relative;
 `;
 
-export const Dropdown = styled.div<{ disabled: boolean; $isOpen: boolean; $isSelected: boolean }>`
+export const IconContainer = styled.div`
+  min-height: 20px;
+  min-width: 20px;
+`;
+
+export const Dropdown = styled.div<{
+  disabled: boolean;
+  $isOpen: boolean;
+  $isSelected: boolean;
+}>`
   ${DropdownStyles}
-  ${({ disabled }) => disabled && DisabledStyles}
-  ${({ $isOpen }) => $isOpen && ActiveStyles}
+  ${({ disabled }) => disabled && DisabledBorderStyles}
+  ${({ $isOpen }) => $isOpen && ActiveBorderStyles}
 
   &:hover {
-    ${({ $isOpen, disabled }) => !disabled && !$isOpen && HoverStyles}
+    ${({ $isOpen, disabled }) => !disabled && !$isOpen && HoverBorderStyles}
   }
 
   & span {
     color: ${({ $isSelected, theme }) => ($isSelected ? theme.color.black : theme.color.gray500)};
+    ${TextEllipsis}
   }
 `;
 
@@ -62,21 +75,21 @@ export const DropdownList = styled.ul`
   overflow-y: auto;
   width: 100%;
   position: absolute;
-  top: 50px;
+  top: calc(100% + 4px);
   left: 0px;
   z-index: ${({ theme }) => theme.zIndex.dropdown};
   border: 1px solid ${({ theme }) => theme.color.gray400};
   background-color: ${({ theme }) => theme.color.white};
   border-radius: 8px;
   box-sizing: border-box;
-  ${FONT_STYLES.BODY5_R};
   ${ScrollBar}
 `;
 
 export const DropdownItem = styled.li<{ $isSelected?: boolean }>`
-  border-bottom: 1px solid ${({ theme }) => theme.color.lineB_B_01};
+  border-bottom: 1px solid ${({ theme }) => theme.color.gray450};
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 10px 12px;
 
   &:first-child {
