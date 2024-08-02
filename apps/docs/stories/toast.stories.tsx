@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 export default {
   title: 'common/Toast',
+  tags: ['autodocs'],
   decorators: [
     (Story: any) => (
       <ToastProvider>
