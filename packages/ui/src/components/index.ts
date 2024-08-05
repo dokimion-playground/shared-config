@@ -5,3 +5,5 @@ export * from './Input';
 export * from './Text';
 export * from './Toast';
 export * from './Chip';
+export * from './Checkbox';
+export * from './Radio';
