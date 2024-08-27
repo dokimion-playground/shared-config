@@ -38,6 +38,11 @@ const GlobalStyle = createGlobalStyle`
     }
     @font-face {
         font-family: 'Pretendard';
+        font-weight: 700;
+        src: url('./assets/fonts/Pretendard-SemiBold.woff') format('woff'),
+    }
+    @font-face {
+        font-family: 'Pretendard';
         font-weight: 800;
         src: url('./assets/fonts/Pretendard-ExtraBold.woff') format('woff'),
     }
