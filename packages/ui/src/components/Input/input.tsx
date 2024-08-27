@@ -2,7 +2,7 @@ import React from 'react';
 import * as S from './style';
 import { FontStyleKeys } from '../../styles/common.style';
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends React.ComponentPropsWithRef<'input'> {
   name?: string;
   width?: string;
   isError?: boolean;

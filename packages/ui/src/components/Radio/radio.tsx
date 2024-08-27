@@ -3,7 +3,7 @@ import { Text } from '../Text';
 import * as S from './style';
 import { RadioContext } from './radioProvider';
 
-export interface RadioProps extends React.HTMLAttributes<HTMLInputElement> {
+export interface RadioProps extends React.ComponentPropsWithRef<'input'> {
   name?: string;
   value?: string;
   disabled?: boolean;

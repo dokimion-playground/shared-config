@@ -2,9 +2,9 @@ import React, { useContext, useState } from 'react';
 import { CloseSVG, ToastCheckSVG, ToastCloseSVG, ToastWarningSVG } from '../Icon';
 import { Text } from '../Text';
 import { getToastTypeColor } from '../../utils/getColor';
-import { ToastDispatchContext } from './toastProvider';
 import { useTimeout } from '../../hooks/useTimeout';
 import * as S from './style';
+import { ToastDispatchContext } from './toastProvider';
 
 export type ToastType = 'success' | 'error' | 'warning';
 

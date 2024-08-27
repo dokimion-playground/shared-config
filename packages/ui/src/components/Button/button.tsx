@@ -5,7 +5,7 @@ export type ButtonVariants = 'primary' | 'secondary' | 'sub' | 'gray' | 'text';
 export type ButtonSizes = 'sm' | 'md' | 'lg';
 // export type ButtonColor = 'black' | 'white';
 
-export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   type?: 'button' | 'submit';
   variant?: ButtonVariants;
   size?: ButtonSizes;

@@ -3,7 +3,7 @@ import * as S from './style';
 import { Text } from '../Text';
 import { CheckSVG } from '../Icon';
 
-export interface CheckboxProps extends React.HTMLAttributes<HTMLInputElement> {
+export interface CheckboxProps extends React.ComponentPropsWithRef<'input'> {
   checked?: boolean;
 }
 
