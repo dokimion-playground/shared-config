@@ -137,11 +137,7 @@ export const FONT_STYLES = {
     weight: fontWeight.semibold,
     lineHeight: '32px',
   }),
-  BODY2_S: generateFontStyle({
-    size: '17px',
-    weight: fontWeight.semibold,
-    lineHeight: '44px',
-  }),
+
   BODY3_R1: generateFontStyle({
     size: '16px',
     weight: fontWeight.regular,
@@ -212,16 +208,6 @@ export const FONT_STYLES = {
     weight: fontWeight.extrabold,
     lineHeight: '20px',
   }),
-  BODY6_M: generateFontStyle({
-    size: '13px',
-    weight: fontWeight.medium,
-    lineHeight: '18px',
-  }),
-  BODY6_S: generateFontStyle({
-    size: '13px',
-    weight: fontWeight.semibold,
-    lineHeight: '18px',
-  }),
   CAPTION1_R: generateFontStyle({
     size: '12px',
     weight: fontWeight.regular,
@@ -236,11 +222,6 @@ export const FONT_STYLES = {
     size: '12px',
     weight: fontWeight.semibold,
     lineHeight: '14px',
-  }),
-  CAPTION2_R: generateFontStyle({
-    size: '11px',
-    weight: fontWeight.regular,
-    lineHeight: '21px',
   }),
   CAPTION3_R: generateFontStyle({
     size: '10px',
