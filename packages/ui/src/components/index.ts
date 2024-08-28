@@ -7,3 +7,4 @@ export * from './Toast';
 export * from './Chip';
 export * from './Checkbox';
 export * from './Radio';
+export * from './RangeDatePicker';
